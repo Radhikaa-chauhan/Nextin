@@ -1,0 +1,32 @@
+﻿# Rust / Cargo
+.cargo/
+target/
+Cargo.lock
+*.cargo
+.cargo_vcs_info.json
+rust.yml
+
+# Python
+*.pyc
+*.pyx
+*.cp39-win*.pyd
+pydevd_frame_evaluator*
+__pycache__/
+
+# Antigravity / IDE
+.antigravity/
+*.vsixmanifest
+argv.json
+extensions.json
+mcp_config.json
+
+# Logs
+*.log
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
