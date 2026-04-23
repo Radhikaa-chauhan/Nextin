@@ -1,36 +1,41 @@
-﻿# Rust / Cargo
-.cargo/
-target/
-Cargo.lock
-*.cargo
-.cargo_vcs_info.json
-rust.yml
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# Python
-*.pyc
-*.pyx
-*.cp39-win*.pyd
-pydevd_frame_evaluator*
-__pycache__/
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
-# Antigravity / IDE
-.antigravity/
-*.vsixmanifest
-argv.json
-extensions.json
-mcp_config.json
+# testing
+/coverage
 
-# Logs
-*.log
+# next.js
+/.next/
+/out/
 
-# Node
-node_modules/
-dist/
+# production
+/build
 
-# OS
+# misc
 .DS_Store
-Thumbs.db
-/**/.cargo/
-/**/Cargo.lock
-C:/Users/
-/Users/
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
