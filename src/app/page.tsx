@@ -1,5 +1,8 @@
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import AnimatedSection from "@/components/AnimatedSection";
+import LeadForm from "@/components/LeadForm";
 
 const STATS = [
   { value: "12+", label: "Years of Excellence" },
@@ -42,6 +45,22 @@ const SERVICES = [
 ];
 
 export default function Home() {
+  const [access, setAccess] = useState<string | null>(null);
+
+  useEffect(() => {
+    const granted = localStorage.getItem("nextin_access");
+    setAccess(granted ? "granted" : "denied");
+  }, []);
+
+  // Avoid flicker while checking localStorage
+  if (access === null) return null;
+
+  // Show lead form gate if not yet submitted
+  if (access === "denied") {
+    return <LeadForm onSuccess={() => setAccess("granted")} />;
+  }
+
+  // ── Your actual site (shown after form is submitted) ──
   return (
     <div className="flex flex-col min-h-screen bg-surface relative overflow-hidden">
       {/* Film Grain Overlay */}
@@ -52,7 +71,6 @@ export default function Home() {
         id="hero"
         className="relative z-10 flex flex-col justify-center items-center text-center px-6 pt-36 lg:pt-44 pb-20 lg:pb-32 min-h-[90vh]"
       >
-        {/* Ambient glow */}
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/[0.03] blur-[120px] pointer-events-none" />
 
         <AnimatedSection>
